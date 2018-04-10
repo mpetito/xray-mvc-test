@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="xray_mvc_test.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="XRayTest.Global" Language="C#" %>

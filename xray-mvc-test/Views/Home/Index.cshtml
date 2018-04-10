@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="container">
+    <h4>ASP.NET MVC <small>TestMvcController</small></h4>
+    <form action="/testmvc" method="post">
+        @Inputs()
+    </form>
+    <hr />
+
+    <h4>ASP.NET Web API <small>TestApiController</small></h4>
+
+    <form action="/api/testapi" method="post" >
+        @Inputs()
+    </form>
+</body>
+</html>
+
+@helper Inputs()
+{
+    <label class="form-check">
+        <input type="radio" name="data" value="@string.Join(string.Empty, Enumerable.Repeat(".", 10))" checked/>
+        Send 10 Chars <span class="text-success">Works</span>
+    </label>
+    <label class="form-check">
+        <input type="radio" name="data" value="@string.Join(string.Empty, Enumerable.Repeat(".", 1000))"/>
+        Send 1000 Chars <span class="text-danger">Fails</span>
+    </label>
+    <button type="submit" class="btn">Post</button>
+}

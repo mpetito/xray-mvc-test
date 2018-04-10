@@ -1,17 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
-using System.Web.Http;
+using Amazon.XRay.Recorder.Handlers.AspNet;
 
-namespace xray_mvc_test
+namespace XRayTest
 {
     public class Global : HttpApplication
     {
+        public override void Init()
+        {
+            base.Init();
+
+            AWSXRayASPNET.RegisterXRay(this, "ASPNETTest"); // default name of the web app
+        }
+
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
